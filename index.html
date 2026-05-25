@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>No Slop Automation — Verified AI automation kits for indie builders</title>
+<meta name="description" content="AI automation that doesn't hallucinate. Verified kits, templates, and runbooks for indie builders. Free starter coming soon." />
+<meta property="og:title" content="No Slop Automation" />
+<meta property="og:description" content="AI automation that doesn't hallucinate. Verified kits for indie builders." />
+<meta property="og:image" content="https://noslopkit.com/logo.png" />
+<meta property="og:url" content="https://noslopkit.com" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="/logo.png" type="image/png" />
+<style>
+:root {
+  --ink: #0F172A;
+  --bg: #FBF8F2;
+  --accent: #DC2626;
+  --muted: #64748B;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, "Inter", "Segoe UI", Roboto, sans-serif; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+main { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
+.logo { display: block; width: 96px; height: 96px; margin-bottom: 40px; }
+h1 { font-size: clamp(40px, 6vw, 56px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 24px; }
+h1 em { color: var(--accent); font-style: normal; }
+p.tagline { font-size: 20px; color: var(--muted); margin-bottom: 48px; max-width: 520px; }
+section.what { border-top: 1px solid #E2E8F0; padding-top: 32px; margin-bottom: 48px; }
+section.what h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 16px; }
+section.what ul { list-style: none; }
+section.what li { font-size: 17px; padding: 6px 0; }
+section.what li::before { content: "→ "; color: var(--accent); font-weight: 700; }
+form.waitlist { border: 1px solid #E2E8F0; background: #fff; padding: 24px; border-radius: 12px; }
+form.waitlist label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+.row { display: flex; gap: 8px; }
+input[type="email"] { flex: 1; padding: 12px 14px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 16px; font-family: inherit; }
+input[type="email"]:focus { outline: 2px solid var(--ink); outline-offset: 0; }
+button { padding: 12px 20px; background: var(--ink); color: #fff; border: 0; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; }
+button:hover { background: #000; }
+p.fineprint { font-size: 13px; color: var(--muted); margin-top: 12px; }
+footer { margin-top: 64px; font-size: 14px; color: var(--muted); }
+footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="/logo.png" alt="No Slop Automation" />
+  <h1>AI automation that <em>doesn't hallucinate.</em></h1>
+  <p class="tagline">Verified kits, templates, and runbooks for indie builders who actually ship.</p>
+
+  <section class="what">
+    <h2>What's coming</h2>
+    <ul>
+      <li>Free starter: Claude Code for non-coders</li>
+      <li>Anti-slop checklist for any AI workflow</li>
+      <li>Verified AI Content Automation Kit (paid beta)</li>
+    </ul>
+  </section>
+
+  <form class="waitlist" action="https://formspree.io/f/REPLACE_ME" method="POST">
+    <label for="email">Join the waitlist — get the free starter when it drops.</label>
+    <div class="row">
+      <input type="email" name="email" id="email" placeholder="you@domain.com" required />
+      <button type="submit">Join</button>
+    </div>
+    <p class="fineprint">No spam. One email when the free starter is ready.</p>
+  </form>
+
+  <footer>
+    <a href="https://x.com/noslopkit">@noslopkit</a> · hello@noslopkit.com
+  </footer>
+</main>
+</body>
+</html>
