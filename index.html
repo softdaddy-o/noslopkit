@@ -57,14 +57,17 @@ footer a { color: var(--muted); }
     </ul>
   </section>
 
-  <form class="waitlist" action="https://formspree.io/f/REPLACE_ME" method="POST">
-    <label for="email">Join the waitlist — get the free starter when it drops.</label>
-    <div class="row">
-      <input type="email" name="email" id="email" placeholder="you@domain.com" required />
-      <button type="submit">Join</button>
-    </div>
-    <p class="fineprint">No spam. One email when the free starter is ready.</p>
-  </form>
+  <div class="waitlist">
+    <iframe data-tally-src="https://tally.so/embed/Me7yGM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0"
+            title="Join the NoSlopKit Waitlist"></iframe>
+    <script>
+      var d=document,w="https://tally.so/widgets/embed.js",v=function(){
+        "undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc});
+      };
+      if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}
+    </script>
+  </div>
 
   <footer>
     <a href="https://x.com/noslopkit">@noslopkit</a> · hello@noslopkit.com

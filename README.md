@@ -19,7 +19,7 @@ Single static `index.html` deployed on GitHub Pages. No build step.
 
 ## TODO
 
-- [ ] Replace `https://formspree.io/f/REPLACE_ME` with real Formspree (or Tally) endpoint
+- [x] Waitlist endpoint — Tally form `Me7yGM` (https://tally.so/r/Me7yGM)
 - [ ] Add real free starter download link once ready (W5 D-5)
 - [ ] Add paid Kit landing once W6+ ready
 
