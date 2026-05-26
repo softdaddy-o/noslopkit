@@ -28,6 +28,10 @@ p.tagline { font-size: 20px; color: var(--muted); margin-bottom: 48px; max-width
 section.freebie { margin-bottom: 32px; }
 a.download { display: block; padding: 20px 24px; background: var(--ink); color: #fff; border-radius: 12px; text-decoration: none; transition: transform 0.1s ease; }
 a.download:hover { transform: translateY(-2px); }
+.download-disabled { display: block; padding: 20px 24px; background: var(--ink); color: #fff; border-radius: 12px; opacity: 0.85; }
+.download-disabled .download-eyebrow { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94A3B8; margin-bottom: 6px; }
+.download-disabled .download-title { display: block; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.download-disabled .download-sub { display: block; font-size: 14px; color: #CBD5E1; }
 a.download .download-eyebrow { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94A3B8; margin-bottom: 6px; }
 a.download .download-title { display: block; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
 a.download .download-sub { display: block; font-size: 14px; color: #CBD5E1; }
@@ -55,11 +59,11 @@ footer a { color: var(--muted); }
   <p class="tagline">Verified kits, templates, and runbooks for indie builders who actually ship.</p>
 
   <section class="freebie">
-    <a class="download" href="/claude-code-for-non-coders.pdf" download>
-      <span class="download-eyebrow">Free starter · PDF · 30-40 min read</span>
-      <span class="download-title">Claude Code for Non-Coders →</span>
-      <span class="download-sub">Your first AI workflow that doesn't ship slop.</span>
-    </a>
+    <div class="download download-disabled">
+      <span class="download-eyebrow">Free starter · PDF · launching soon</span>
+      <span class="download-title">Claude Code for Non-Coders</span>
+      <span class="download-sub">In final review. Join the waitlist below — you'll get it first.</span>
+    </div>
   </section>
 
   <section class="what">
