@@ -3,92 +3,451 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>No Slop Automation — Verified AI automation kits for indie builders</title>
-<meta name="description" content="AI automation that doesn't hallucinate. Verified kits, templates, and runbooks for indie builders. Free starter coming soon." />
+<title>No Slop Automation - Claude Code Starter for Builders</title>
+<meta name="description" content="Stop shipping AI workflows that work once and fail tomorrow. Get the free Claude Code starter and anti-slop checklist for repeatable AI automation." />
 <meta property="og:title" content="No Slop Automation" />
-<meta property="og:description" content="AI automation that doesn't hallucinate. Verified kits for indie builders." />
+<meta property="og:description" content="Claude Code workflows with checks, handoff points, and repeatable prompts." />
 <meta property="og:image" content="https://noslopkit.com/logo.png" />
 <meta property="og:url" content="https://noslopkit.com" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="/logo.png" type="image/png" />
 <style>
 :root {
-  --ink: #0F172A;
-  --bg: #FBF8F2;
-  --accent: #DC2626;
-  --muted: #64748B;
+  --ink: #111111;
+  --paper: #fbf7ee;
+  --panel: #fffdfa;
+  --line: #ded6c9;
+  --muted: #6f675d;
+  --red: #d62518;
+  --red-dark: #a71810;
+  --green: #14532d;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: var(--bg); color: var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, "Inter", "Segoe UI", Roboto, sans-serif; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-main { max-width: 640px; margin: 0 auto; padding: 80px 24px 120px; }
-.logo { display: block; width: 96px; height: 96px; margin-bottom: 40px; }
-h1 { font-size: clamp(40px, 6vw, 56px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 24px; }
-h1 em { color: var(--accent); font-style: normal; }
-p.tagline { font-size: 20px; color: var(--muted); margin-bottom: 48px; max-width: 520px; }
-section.freebie { margin-bottom: 32px; }
-a.download { display: block; padding: 20px 24px; background: var(--ink); color: #fff; border-radius: 12px; text-decoration: none; transition: transform 0.1s ease; }
-a.download:hover { transform: translateY(-2px); }
-.download-disabled { display: block; padding: 20px 24px; background: var(--ink); color: #fff; border-radius: 12px; opacity: 0.85; }
-.download-disabled .download-eyebrow { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94A3B8; margin-bottom: 6px; }
-.download-disabled .download-title { display: block; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-.download-disabled .download-sub { display: block; font-size: 14px; color: #CBD5E1; }
-a.download .download-eyebrow { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94A3B8; margin-bottom: 6px; }
-a.download .download-title { display: block; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-a.download .download-sub { display: block; font-size: 14px; color: #CBD5E1; }
-section.what { border-top: 1px solid #E2E8F0; padding-top: 32px; margin-bottom: 48px; }
-section.what h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 16px; }
-section.what ul { list-style: none; }
-section.what li { font-size: 17px; padding: 6px 0; }
-section.what li::before { content: "→ "; color: var(--accent); font-weight: 700; }
-form.waitlist { border: 1px solid #E2E8F0; background: #fff; padding: 24px; border-radius: 12px; }
-form.waitlist label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 12px; }
-.row { display: flex; gap: 8px; }
-input[type="email"] { flex: 1; padding: 12px 14px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 16px; font-family: inherit; }
-input[type="email"]:focus { outline: 2px solid var(--ink); outline-offset: 0; }
-button { padding: 12px 20px; background: var(--ink); color: #fff; border: 0; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; }
-button:hover { background: #000; }
-p.fineprint { font-size: 13px; color: var(--muted); margin-top: 12px; }
-footer { margin-top: 64px; font-size: 14px; color: var(--muted); }
+
+* { box-sizing: border-box; }
+html { background: var(--paper); color: var(--ink); }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.48;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0 28px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.brand strong {
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.topbar a {
+  color: var(--ink);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 14px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: 48px;
+  align-items: start;
+  padding: 64px 0 44px;
+}
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 7px 10px;
+  border: 2px solid var(--ink);
+  color: var(--red-dark);
+  background: #fff;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: rotate(-1deg);
+}
+
+h1 {
+  max-width: 850px;
+  margin: 0 0 24px;
+  font-size: clamp(44px, 8vw, 88px);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+h1 span {
+  color: var(--red);
+}
+
+.lead {
+  max-width: 680px;
+  margin: 0;
+  color: #3c372f;
+  font-size: clamp(19px, 2vw, 25px);
+}
+
+.offer {
+  position: sticky;
+  top: 24px;
+  border: 2px solid var(--ink);
+  background: var(--panel);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.offer-head {
+  padding: 18px 20px;
+  border-bottom: 2px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.offer-body {
+  padding: 22px 20px;
+}
+
+.offer h2 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  line-height: 1.04;
+}
+
+.offer p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.cta-button {
+  display: block;
+  width: 100%;
+  margin: 0 0 14px;
+  padding: 14px 16px;
+  border: 2px solid var(--ink);
+  background: var(--red);
+  color: #fff;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.cta-button:hover {
+  background: var(--red-dark);
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.tally-wrap {
+  padding: 2px 0 0;
+}
+
+.proofline {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--green);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 13px;
+}
+
+.section {
+  border-top: 2px solid var(--ink);
+  padding: 34px 0;
+}
+
+.section h2 {
+  margin: 0 0 18px;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.problem-grid,
+.deliver-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.problem,
+.deliverable {
+  border-left: 4px solid var(--red);
+  padding: 4px 18px 2px;
+}
+
+.problem strong,
+.deliverable strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 21px;
+  line-height: 1.15;
+}
+
+.problem p,
+.deliverable p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.manifesto {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.manifesto .big {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.checks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.checks li {
+  display: flex;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 18px;
+}
+
+.checks li::before {
+  content: "CHECK";
+  flex: 0 0 auto;
+  color: var(--red-dark);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  transform: translateY(4px);
+}
+
+.final-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: 34px;
+  align-items: center;
+  margin-top: 26px;
+  padding: 28px;
+  border: 2px solid var(--ink);
+  background: #fff;
+}
+
+.final-cta h2 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.02;
+}
+
+.final-cta p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 30px;
+  color: var(--muted);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 13px;
+}
+
 footer a { color: var(--muted); }
+
+@media (max-width: 780px) {
+  main { width: min(100% - 24px, 640px); padding-top: 18px; }
+  .topbar { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .hero,
+  .manifesto,
+  .final-cta {
+    grid-template-columns: 1fr;
+  }
+  .hero { gap: 32px; padding-top: 42px; }
+  .offer { position: static; box-shadow: 6px 6px 0 var(--ink); }
+  .problem-grid,
+  .deliver-grid {
+    grid-template-columns: 1fr;
+  }
+  footer { flex-direction: column; }
+}
 </style>
 </head>
 <body>
 <main>
-  <img class="logo" src="/logo.png" alt="No Slop Automation" />
-  <h1>AI automation that <em>doesn't hallucinate.</em></h1>
-  <p class="tagline">Verified kits, templates, and runbooks for indie builders who actually ship.</p>
+  <nav class="topbar" aria-label="Primary">
+    <div class="brand">
+      <img src="/logo.png" alt="No Slop Automation logo" />
+      <strong>No Slop Automation</strong>
+    </div>
+    <a href="https://x.com/noslopkit">@noslopkit</a>
+  </nav>
 
-  <section class="freebie">
-    <div class="download download-disabled">
-      <span class="download-eyebrow">Free starter · PDF · launching soon</span>
-      <span class="download-title">Claude Code for Non-Coders</span>
-      <span class="download-sub">In final review. Join the waitlist below — you'll get it first.</span>
+  <section class="hero">
+    <div>
+      <div class="stamp">Free starter launching this week</div>
+      <h1>Stop shipping AI workflows that <span>work once</span> and fail tomorrow.</h1>
+      <p class="lead">Get a practical Claude Code starter for builders who want repeatable prompts, visible checks, and human handoff points before the automation touches real work.</p>
+    </div>
+
+    <aside class="offer" aria-label="Join the waitlist">
+      <div class="offer-head">Get the first drop</div>
+      <div class="offer-body">
+        <h2>Claude Code for Non-Coders</h2>
+        <p>PDF starter plus the anti-slop checklist. You will get v1 when it drops this week.</p>
+        <a class="cta-button" href="https://tally.so/r/Me7yGM">Join the waitlist</a>
+        <div class="tally-wrap">
+          <iframe data-tally-src="https://tally.so/embed/Me7yGM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                  loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0"
+                  title="Join the NoSlopKit Waitlist"></iframe>
+        </div>
+        <div class="proofline">No newsletter filler. Just the starter, checklist, and kit beta notice.</div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section" aria-labelledby="broken-heading">
+    <h2 id="broken-heading">Why most AI workflows break</h2>
+    <div class="problem-grid">
+      <div class="problem">
+        <strong>Hallucinated sources</strong>
+        <p>The output sounds useful until a citation, number, or claim turns out to be invented.</p>
+      </div>
+      <div class="problem">
+        <strong>Silent edge cases</strong>
+        <p>The demo works once, then empty input, missing context, or stale files make it unreliable.</p>
+      </div>
+      <div class="problem">
+        <strong>Prompts nobody can rerun</strong>
+        <p>The workflow lives in chat history instead of a repeatable runbook someone can trust tomorrow.</p>
+      </div>
     </div>
   </section>
 
-  <section class="what">
-    <h2>What's coming next</h2>
-    <ul>
-      <li>Anti-slop checklist for any AI workflow</li>
-      <li>Verified AI Content Automation Kit (paid beta)</li>
-    </ul>
+  <section class="section" aria-labelledby="starter-heading">
+    <h2 id="starter-heading">What the starter gives you</h2>
+    <div class="deliver-grid">
+      <div class="deliverable">
+        <strong>One useful automation</strong>
+        <p>Build a small Claude Code workflow that handles real files, not just a toy prompt.</p>
+      </div>
+      <div class="deliverable">
+        <strong>Reusable prompts</strong>
+        <p>Keep the repeatable parts in a system file so the workflow gets easier to rerun.</p>
+      </div>
+      <div class="deliverable">
+        <strong>Checks in the loop</strong>
+        <p>Know what must be verified by the AI, what must be verified by you, and where it can fail.</p>
+      </div>
+    </div>
   </section>
 
-  <div class="waitlist">
-    <iframe data-tally-src="https://tally.so/embed/Me7yGM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0"
-            title="Join the NoSlopKit Waitlist"></iframe>
-    <script>
-      var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-        "undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc});
-      };
-      if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}
-    </script>
-  </div>
+  <section class="section manifesto" aria-labelledby="checks-heading">
+    <p class="big">No Slop Automation means the checks ship with the workflow.</p>
+    <div>
+      <h2 id="checks-heading">The anti-slop checklist</h2>
+      <ul class="checks">
+        <li>What must be true before the output is trusted?</li>
+        <li>Where can the model hallucinate or overreach?</li>
+        <li>What happens when the input is empty, stale, or malformed?</li>
+        <li>Which step needs a human handoff before publishing?</li>
+        <li>Can the same workflow run again next week?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="final-cta" aria-label="Final signup">
+    <div>
+      <h2>Get the PDF and checklist when v1 drops.</h2>
+      <p>The paid kit comes later. This first drop is the free starter and the practical checks.</p>
+    </div>
+    <div class="tally-wrap">
+      <a class="cta-button" href="https://tally.so/r/Me7yGM">Join the waitlist</a>
+      <iframe data-tally-src="https://tally.so/embed/Me7yGM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              loading="lazy" width="100%" height="220" frameborder="0" marginheight="0" marginwidth="0"
+              title="Join the NoSlopKit Waitlist"></iframe>
+    </div>
+  </section>
 
   <footer>
-    <a href="https://x.com/noslopkit">@noslopkit</a> · hello@noslopkit.com
+    <span>No Slop Automation</span>
+    <span><a href="https://x.com/noslopkit">@noslopkit</a> · hello@noslopkit.com</span>
   </footer>
 </main>
+
+<script>
+  var d = document;
+  var w = "https://tally.so/widgets/embed.js";
+  var load = function () {
+    if (typeof Tally !== "undefined") {
+      Tally.loadEmbeds();
+      return;
+    }
+    d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (frame) {
+      frame.src = frame.dataset.tallySrc;
+    });
+  };
+  if (typeof Tally !== "undefined") {
+    load();
+  } else if (d.querySelector('script[src="' + w + '"]') === null) {
+    var script = d.createElement("script");
+    script.src = w;
+    script.onload = load;
+    script.onerror = load;
+    d.body.appendChild(script);
+  }
+</script>
 </body>
 </html>
