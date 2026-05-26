@@ -1,6 +1,6 @@
 # noslopkit.com
 
-Landing page for **No Slop Automation** — verified AI automation kits for indie builders.
+Landing page for **No Slop Automation**, a verified AI automation kit for indie builders.
 
 - Brand: No Slop Automation
 - Domain: https://noslopkit.com
@@ -14,26 +14,25 @@ Single static `index.html` deployed on GitHub Pages. No frontend build step.
 ## GitHub Pages
 
 - Repository: `softdaddy-o/noslopkit`
-- Pages source: GitHub Actions (`.github/workflows/deploy.yml`)
-- Static artifact source files: `main` branch root
+- Pages source: `main` branch, root path `/`
+- Jekyll processing: disabled by `.nojekyll`
 - Custom domain: `noslopkit.com`
 - Local synced folder: `D:\srcp\noslopkit`
 
 ## Files
 
-- `index.html` — landing page + waitlist form
-- `logo.png` — brand logo (favicon + og:image)
-- `CNAME` — GitHub Pages custom domain config
+- `index.html` - landing page + waitlist form
+- `logo.png` - brand logo, favicon, and Open Graph image
+- `CNAME` - GitHub Pages custom domain config
+- `.nojekyll` - keeps GitHub Pages from running Jekyll on this static site
 
 ## TODO
 
-- [x] Waitlist endpoint — Tally form `Me7yGM` (https://tally.so/r/Me7yGM)
-- [ ] Add real free starter download link once ready (W5 D-5)
-- [ ] Add paid Kit landing once W6+ ready
+- [x] Waitlist endpoint - Tally form `Me7yGM` (https://tally.so/r/Me7yGM)
+- [ ] Add real free starter download link once ready
+- [ ] Add paid kit landing once ready
 
 ## Source
-
-Brand decisions + W5 plan: [softdaddy-o/Docs · Roadmap/2026-05-25_W4-회고-W5-플랜.md](https://github.com/softdaddy-o/Docs/blob/master/Roadmap/2026-05-25_W4-%ED%9A%8C%EA%B3%A0-W5-%ED%94%8C%EB%9E%9C.md)
 
 Detailed deployment guide lives in the Docs repo:
 
