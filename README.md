@@ -9,12 +9,13 @@ Landing page for **No Slop Automation** — verified AI automation kits for indi
 
 ## Stack
 
-Single static `index.html` deployed on GitHub Pages. No build step.
+Single static `index.html` deployed on GitHub Pages. No frontend build step.
 
 ## GitHub Pages
 
 - Repository: `softdaddy-o/noslopkit`
-- Pages source: `main` branch, root path `/`
+- Pages source: GitHub Actions (`.github/workflows/deploy.yml`)
+- Static artifact source files: `main` branch root
 - Custom domain: `noslopkit.com`
 - Local synced folder: `D:\srcp\noslopkit`
 
